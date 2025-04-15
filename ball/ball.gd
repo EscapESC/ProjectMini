@@ -21,5 +21,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Shooting!");
 		SHOOTING = false;
 		
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	print(self.linear_velocity);
+	queue_redraw()
+	
+func _draw() -> void:
+	if SHOOTING == true:
+		draw_line(self.position, get_global_mouse_position(), Color.WHITE, 5.0)
