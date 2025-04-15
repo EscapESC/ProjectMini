@@ -6,15 +6,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwunn"]
 radius = 4.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D"]
 gravity_scale = 0.0
 linear_damp = 2.5
 script = ExtResource("1_pwunn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Ball_Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_pwunn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Ball_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("1_6plaf")

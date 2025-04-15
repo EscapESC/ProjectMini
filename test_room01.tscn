@@ -6,4 +6,4 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="RigidBody2D" parent="." instance=ExtResource("1_r1f8f")]
+[node name="Ball" parent="." instance=ExtResource("1_r1f8f")]
