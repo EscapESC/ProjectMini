@@ -38,8 +38,6 @@ sources/0 = SubResource("TileSetAtlasSource_3ih8a")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Ball" parent="." instance=ExtResource("1_r1f8f")]
 z_index = 1
 position = Vector2(-320, -422)
