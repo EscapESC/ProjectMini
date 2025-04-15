@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ppikq8gtjtce"]
+
+[ext_resource type="PackedScene" uid="uid://j207dwv1t5ps" path="res://ball/ball.tscn" id="1_r1f8f"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_r1f8f")]

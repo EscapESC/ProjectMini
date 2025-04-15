@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="ProjectMini"
+run/main_scene="uid://ppikq8gtjtce"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2000
+window/size/viewport_height=1200
+window/size/sharp_corners=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -20,5 +30,6 @@ project/assembly_name="ProjectMini"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
