@@ -13,7 +13,9 @@ radius = 4.0
 mass = 0.045
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
 gravity_scale = 0.0
-linear_damp = 2.5
+continuous_cd = 1
+linear_damp = 1.0
+angular_damp = 1.0
 script = ExtResource("1_pwunn")
 
 [node name="Ball_Collision" type="CollisionShape2D" parent="."]

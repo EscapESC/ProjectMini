@@ -7,21 +7,39 @@ var shoot_pos_start:Vector2;
 var shoot_pos_end:Vector2;
 var SHOOTING:bool = false;
 
-var range:int = 500;
-@export var forceMultiplayer = 5;
+var maxShootingStrengthPx:int = 500;
+
+var range:int = 50;
+@export var forceMultiplayer = 1;
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot") and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and self.linear_velocity.x < 1 and linear_velocity.y < 1:
-		shoot_pos_start = get_global_mouse_position();
+	if event.is_action_pressed("shoot") and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 2:
+		shoot_pos_start = self.position
 		SHOOTING = true;
 	elif event.is_action_released("shoot") and SHOOTING:
 		shoot_pos_end = get_global_mouse_position();
-		apply_force(Vector2(clamp((shoot_pos_start-shoot_pos_end).x*forceMultiplayer,-10000000,10000000),clamp((shoot_pos_start-shoot_pos_end).y*forceMultiplayer,-100000,100000)),Vector2(0,0));
-		SHOOTING = false;
+		var distance = shoot_pos_end.distance_to(shoot_pos_start);
 		
+		if distance > maxShootingStrengthPx:
+			var direction = (shoot_pos_end - self.position).normalized();
+			shoot_pos_end = self.position + direction * maxShootingStrengthPx;
+			
+		var forceX = (self.position.x - shoot_pos_end.x)/5;
+		var forceY = (self.position.y - shoot_pos_end.y)/5;
+		
+		apply_impulse(Vector2(forceX,forceY));
+		
+		SHOOTING = false;
 func _process(delta: float) -> void:
 	queue_redraw()
 	
 func _draw() -> void:
 	if SHOOTING == true:
-		draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 5.0)
+		if to_local(self.position).distance_to(get_local_mouse_position()) > maxShootingStrengthPx:
+			var start = to_local(self.position)
+			var dir = (get_local_mouse_position() - start).normalized()
+			var end = start + dir * maxShootingStrengthPx;
+			draw_line(start, end, Color.WHITE, 5.0)
+
+		else:
+			draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 5.0)
