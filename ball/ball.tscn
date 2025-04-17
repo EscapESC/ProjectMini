@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://j207dwv1t5ps"]
 
-[ext_resource type="Texture2D" uid="uid://coh7j68rk62ky" path="res://ball/ball_default.png" id="1_6plaf"]
 [ext_resource type="Script" uid="uid://ba21b6c45277h" path="res://ball/ball.gd" id="1_pwunn"]
+[ext_resource type="Texture2D" uid="uid://30jjufrbowph" path="res://assets/player/default/ball.png" id="2_biv8x"]
 [ext_resource type="PackedScene" uid="uid://tj8jrf2peof1" path="res://ball/texture_progress_bar.tscn" id="3_biv8x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwunn"]
@@ -29,7 +29,7 @@ shape = SubResource("CircleShape2D_pwunn")
 
 [node name="Ball_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
-texture = ExtResource("1_6plaf")
+texture = ExtResource("2_biv8x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
