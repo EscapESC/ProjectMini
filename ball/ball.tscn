@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ba21b6c45277h" path="res://ball/ball.gd" id="1_pwunn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwunn"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwunn"]
@@ -13,6 +14,8 @@ radius = 4.0
 mass = 0.045
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
 gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
 continuous_cd = 1
 linear_damp = 1.0
 angular_damp = 1.0
@@ -25,7 +28,5 @@ shape = SubResource("CircleShape2D_pwunn")
 [node name="Ball_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("1_6plaf")
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
