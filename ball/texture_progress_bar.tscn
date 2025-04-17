@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bfacnglnbg6l1" path="res://assets/hud/bar/ball_progress_bar_progress.png" id="3_6dyae"]
 
 [node name="TextureProgressBar" type="TextureProgressBar"]
+visible = false
 offset_right = 16.0
 offset_bottom = 32.0
 texture_under = ExtResource("1_5lj8a")
 texture_over = ExtResource("2_f2h8j")
 texture_progress = ExtResource("3_6dyae")
+tint_progress = Color(0.05, 0.75, 0.05, 1)

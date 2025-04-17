@@ -15,9 +15,10 @@ var range:int = 50;
 @export var powerMeter:TextureProgressBar
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot") and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 2:
+	if event.is_action_pressed("shoot") and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 10:
 		shoot_pos_start = self.position
 		SHOOTING = true;
+		powerMeter.visible = true;
 	elif event.is_action_released("shoot") and SHOOTING:
 		shoot_pos_end = get_global_mouse_position();
 		var distance = shoot_pos_end.distance_to(shoot_pos_start);
@@ -32,6 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		apply_impulse(Vector2(forceX,forceY));
 		
 		SHOOTING = false;
+		powerMeter.visible = false;
 func _process(delta: float) -> void:
 	queue_redraw()
 	
@@ -45,4 +47,4 @@ func _draw() -> void:
 
 		else:
 			draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 5.0)
-			powerMeter.value = float(maxShootingStrengthPx/5)*100; 
+			powerMeter.value = min(to_local(self.position).distance_to(get_local_mouse_position())/maxShootingStrengthPx,1)*100; 
