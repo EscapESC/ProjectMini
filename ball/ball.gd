@@ -12,6 +12,8 @@ var maxShootingStrengthPx:int = 500;
 var range:int = 50;
 @export var forceMultiplayer:float = 1;
 
+@export var powerMeter:TextureProgressBar
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot") and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 2:
 		shoot_pos_start = self.position
@@ -43,3 +45,4 @@ func _draw() -> void:
 
 		else:
 			draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 5.0)
+			powerMeter.value = float(maxShootingStrengthPx/5)*100; 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://j207dwv1t5ps"]
+[gd_scene load_steps=6 format=3 uid="uid://j207dwv1t5ps"]
 
 [ext_resource type="Texture2D" uid="uid://coh7j68rk62ky" path="res://ball/ball_default.png" id="1_6plaf"]
 [ext_resource type="Script" uid="uid://ba21b6c45277h" path="res://ball/ball.gd" id="1_pwunn"]
+[ext_resource type="PackedScene" uid="uid://tj8jrf2peof1" path="res://ball/texture_progress_bar.tscn" id="3_biv8x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwunn"]
 friction = 0.0
@@ -10,7 +11,7 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwunn"]
 radius = 4.0
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("powerMeter")]
 mass = 0.045
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
 gravity_scale = 0.0
@@ -20,6 +21,7 @@ continuous_cd = 1
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_pwunn")
+powerMeter = NodePath("TextureProgressBar")
 
 [node name="Ball_Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
@@ -30,3 +32,10 @@ scale = Vector2(5, 5)
 texture = ExtResource("1_6plaf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("3_biv8x")]
+offset_left = 19.0
+offset_top = -47.0
+offset_right = 35.0
+offset_bottom = -15.0
+scale = Vector2(3, 3)
