@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://p5wwib3mrhgr"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://p5wwib3mrhgr"]
 
 [ext_resource type="Texture2D" uid="uid://y4bvxyso8o7q" path="res://assets/tilesetmap.png" id="1_684cf"]
+[ext_resource type="PackedScene" uid="uid://4g1m3wqcrrp1" path="res://objects/spikes.tscn" id="2_l1g35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1g35"]
 texture = ExtResource("1_684cf")
@@ -178,9 +179,13 @@ texture = ExtResource("1_684cf")
 0:2/0/terrains_peering_bit/top_side = 0
 0:2/0/terrains_peering_bit/top_right_corner = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mntuf"]
+scenes/1/scene = ExtResource("2_l1g35")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_l1g35")
+sources/2 = SubResource("TileSetScenesCollectionSource_mntuf")

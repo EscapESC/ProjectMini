@@ -12,6 +12,7 @@ bounce = 1.0
 radius = 4.0
 
 [node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("powerMeter")]
+collision_layer = 5
 mass = 0.045
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
 gravity_scale = 0.0
