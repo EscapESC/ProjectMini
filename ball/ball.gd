@@ -43,8 +43,8 @@ func _draw() -> void:
 			var start = to_local(self.position)
 			var dir = (get_local_mouse_position() - start).normalized()
 			var end = start + dir * maxShootingStrengthPx;
-			draw_line(start, end, Color.WHITE, 5.0)
+			draw_line(start, end, Color.WHITE, 10)
 
 		else:
-			draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 5.0)
+			draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 10.0)
 			powerMeter.value = min(to_local(self.position).distance_to(get_local_mouse_position())/maxShootingStrengthPx,1)*100; 
