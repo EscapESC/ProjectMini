@@ -60,7 +60,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func killObjectsInside() -> void:
 	var eraseCache = [];
 	for object in objectsInside:
-		if get_node_or_null(object) != null:
+		if is_instance_valid(object) != null:
 			if object.has_method("die"):
 				object.die();
 			else:
