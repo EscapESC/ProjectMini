@@ -20,8 +20,7 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAACAAMAAAABAAEAAAD//wEAAAABAAEAAAD//wAAAAAFAAAAAAD/////AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAACAAQAAAABAAEAAAABAAQAAAAFAAAAAAAAAAQAAAAFAAAAAAD//wQAAAABAAEAAAD//wIAAAABAAEAAAAAAAEAAAABAAEAAAABAAEAAAABAAAAAAABAAIAAAAFAAAAAAACAAEAAAABAAAAAAACAAIAAAAAAAEAAAAAAAIAAAAAAAAAAAABAAMAAAAAAAAAAAA=")
 tile_set = ExtResource("2_s02eq")
 
-[node name="Ball" parent="." instance=ExtResource("2_4wuf8")]
-z_index = 1
+[node name="Win" parent="." instance=ExtResource("4_t8dge")]
+position = Vector2(0, 720)
 
-[node name="Node2D" parent="." instance=ExtResource("4_t8dge")]
-position = Vector2(1, 79)
+[node name="Ball" parent="." instance=ExtResource("2_4wuf8")]

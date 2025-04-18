@@ -41,7 +41,7 @@ sources/0 = SubResource("TileSetAtlasSource_3ih8a")
 [node name="Ball" parent="." instance=ExtResource("1_r1f8f")]
 z_index = 1
 position = Vector2(-320, -400)
-forceMultiplayer = 0.2
+script = null
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
