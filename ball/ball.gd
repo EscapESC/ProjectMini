@@ -53,4 +53,5 @@ func die() -> void:
 	print("DEAD")
 	
 func win() -> void:
-	print("win") # code is 24568
+	print("win")
+	

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bufe7bejpg2if"]
+
+[ext_resource type="Script" uid="uid://be77mqinrms6o" path="res://ball_trail.gd" id="1_67v5i"]
+
+[sub_resource type="Curve" id="Curve_882fq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ocr3l"]
+colors = PackedColorArray(1, 1, 1, 1, 0.104499, 0.390583, 1, 1)
+
+[node name="Line2D" type="Line2D"]
+top_level = true
+z_index = -1
+points = PackedVector2Array(83, 94, 381, 135)
+width = 25.0
+width_curve = SubResource("Curve_882fq")
+gradient = SubResource("Gradient_ocr3l")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("1_67v5i")

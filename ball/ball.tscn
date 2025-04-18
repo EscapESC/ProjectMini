@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://j207dwv1t5ps"]
+[gd_scene load_steps=7 format=3 uid="uid://j207dwv1t5ps"]
 
 [ext_resource type="Script" uid="uid://ba21b6c45277h" path="res://ball/ball.gd" id="1_pwunn"]
 [ext_resource type="Texture2D" uid="uid://30jjufrbowph" path="res://assets/player/default/ball.png" id="2_biv8x"]
 [ext_resource type="PackedScene" uid="uid://tj8jrf2peof1" path="res://ball/texture_progress_bar.tscn" id="3_biv8x"]
+[ext_resource type="PackedScene" uid="uid://bufe7bejpg2if" path="res://ball/ball_trail.tscn" id="4_6xd6y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwunn"]
 friction = 0.0
@@ -38,7 +39,10 @@ offset_right = 35.0
 offset_bottom = -15.0
 scale = Vector2(3, 3)
 fill_mode = 3
+tint_progress = Color(0.553532, 0.734283, 3.85046e-07, 1)
 
 [node name="Ball_Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_pwunn")
+
+[node name="Line2D" parent="." instance=ExtResource("4_6xd6y")]
