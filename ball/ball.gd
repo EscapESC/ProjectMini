@@ -48,3 +48,6 @@ func _draw() -> void:
 		else:
 			draw_line(to_local(self.position), get_local_mouse_position(), Color.WHITE, 10.0)
 			powerMeter.value = min(to_local(self.position).distance_to(get_local_mouse_position())/maxShootingStrengthPx,1)*100; 
+
+func win() -> void:
+	print("win") # code is 24568

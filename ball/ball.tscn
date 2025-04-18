@@ -23,10 +23,6 @@ angular_damp = 1.0
 script = ExtResource("1_pwunn")
 powerMeter = NodePath("TextureProgressBar")
 
-[node name="Ball_Collision" type="CollisionShape2D" parent="."]
-scale = Vector2(5, 5)
-shape = SubResource("CircleShape2D_pwunn")
-
 [node name="Ball_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("2_biv8x")
@@ -41,3 +37,7 @@ offset_right = 35.0
 offset_bottom = -15.0
 scale = Vector2(3, 3)
 fill_mode = 3
+
+[node name="Ball_Collision" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_pwunn")
