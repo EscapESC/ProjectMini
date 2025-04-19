@@ -26,6 +26,7 @@ script = ExtResource("1_pwunn")
 powerMeter = NodePath("TextureProgressBar")
 
 [node name="Ball_Sprite" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(5, 5)
 texture = ExtResource("2_biv8x")
 
@@ -46,3 +47,4 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_pwunn")
 
 [node name="Line2D" parent="." instance=ExtResource("4_6xd6y")]
+z_index = 0
