@@ -40,7 +40,6 @@ offset_right = 35.0
 offset_bottom = -15.0
 scale = Vector2(3, 3)
 fill_mode = 3
-tint_progress = Color(0.553532, 0.734283, 3.85046e-07, 1)
 
 [node name="Ball_Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
