@@ -15,11 +15,11 @@ var range:int = 50;
 @export var powerMeter:TextureProgressBar
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot") and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 10:
+	if (event.is_action_pressed("shoot") or event is InputEventScreenTouch) and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 10:
 		shoot_pos_start = self.position
 		SHOOTING = true;
 		powerMeter.visible = true;
-	elif event.is_action_released("shoot") and SHOOTING:
+	elif (event.is_action_released("shoot") or event is InputEventScreenTouch) and SHOOTING:
 		shoot_pos_end = get_global_mouse_position();
 		var distance = shoot_pos_end.distance_to(shoot_pos_start);
 		
