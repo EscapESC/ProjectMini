@@ -1,3 +1,4 @@
+@tool
 extends StaticBody2D
 
 @export_category("Editor properties")
@@ -8,7 +9,7 @@ var property_canRotate:int = true;
 @export var textureFrameSize:int = 16;
 
 func _ready() -> void:
-	update()
+	update();
 
 func update() -> void:
 	$Sprite2D.hframes = $Sprite2D.texture.get_width()/textureFrameSize;
@@ -18,3 +19,7 @@ func update() -> void:
 	$Sprite2D.rotation = PI*2*-property_rotation/4;
 	$Sprite2D.frame_coords.x = property_rotation;
 	$Sprite2D.frame_coords.y = property_skin;
+	
+func _process(delta):
+	if Engine.is_editor_hint():
+		update()
