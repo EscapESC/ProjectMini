@@ -6,6 +6,7 @@ extends StaticBody2D
 @export_enum("0°:0","90°:1","180°:2","270°:3") var property_rotation:int = 0;
 var property_canRotate:int = true;
 
+@export_category("Internal properties")
 @export var textureFrameSize:int = 16;
 
 func _ready() -> void:
