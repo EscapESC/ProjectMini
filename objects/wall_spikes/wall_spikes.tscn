@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbw625qy1iki"]
+
+[ext_resource type="Script" uid="uid://dssybr5xk542d" path="res://objects/wall_spikes/wall_spikes.gd" id="1_4t2xe"]
+[ext_resource type="Texture2D" uid="uid://dbs5p623djf6k" path="res://assets/objects/wall_spikes.png" id="2_mgt14"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_mgt14"]
+points = PackedVector2Array(-40, 40, 0, -40, 40, 40)
+
+[node name="wall_spikes" type="Node2D"]
+script = ExtResource("1_4t2xe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("ConvexPolygonShape2D_mgt14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_mgt14")
+hframes = 4
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

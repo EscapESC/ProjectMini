@@ -1,5 +1,6 @@
 extends Node2D
 
+@export_category("Editor properties")
 @export var active:bool = true;
 
 @export var timeActivated: float = 1.0;

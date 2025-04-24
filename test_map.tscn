@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://c8gcwpyb8rrk7"]
+[gd_scene load_steps=7 format=4 uid="uid://c8gcwpyb8rrk7"]
 
 [ext_resource type="PackedScene" uid="uid://j207dwv1t5ps" path="res://ball/ball.tscn" id="2_4wuf8"]
-[ext_resource type="PackedScene" uid="uid://co8x3mn2us2tn" path="res://objects/wallSlope/wallSlope.tscn" id="4_qgarv"]
+[ext_resource type="PackedScene" uid="uid://co8x3mn2us2tn" path="res://objects/wall_slope/wallSlope.tscn" id="4_qgarv"]
 [ext_resource type="PackedScene" uid="uid://c1xfwt7qod0yl" path="res://objects/ball_hole/ball_hole.tscn" id="4_t8dge"]
 [ext_resource type="TileSet" uid="uid://dx7g6ajr03o8x" path="res://tileSets/walls_wood_tileset.tres" id="5_qgarv"]
 [ext_resource type="PackedScene" uid="uid://4g1m3wqcrrp1" path="res://objects/spikes/spikes.tscn" id="5_r0pc2"]
+[ext_resource type="PackedScene" uid="uid://cbw625qy1iki" path="res://objects/wall_spikes/wall_spikes.tscn" id="6_r0pc2"]
 
 [node name="Test_Map" type="Node2D"]
 
@@ -41,3 +42,6 @@ property_rotation = 1
 
 [node name="Spikes" parent="." instance=ExtResource("5_r0pc2")]
 position = Vector2(120, 360)
+
+[node name="wall_spikes" parent="." instance=ExtResource("6_r0pc2")]
+position = Vector2(120, 200)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://co8x3mn2us2tn"]
 
-[ext_resource type="Script" uid="uid://d4ifesjh6f17" path="res://objects/wallSlope/wall_slope.gd" id="1_jldnj"]
+[ext_resource type="Script" uid="uid://d4ifesjh6f17" path="res://objects/wall_slope/wall_slope.gd" id="1_jldnj"]
 [ext_resource type="Texture2D" uid="uid://6ev8yj835jgy" path="res://assets/objects/wall_slope.png" id="1_s4jt6"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_s4jt6"]
