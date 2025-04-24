@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://c8gcwpyb8rrk7"]
+[gd_scene load_steps=6 format=4 uid="uid://c8gcwpyb8rrk7"]
 
 [ext_resource type="PackedScene" uid="uid://j207dwv1t5ps" path="res://ball/ball.tscn" id="2_4wuf8"]
 [ext_resource type="PackedScene" uid="uid://co8x3mn2us2tn" path="res://objects/wallSlope/wallSlope.tscn" id="4_qgarv"]
 [ext_resource type="PackedScene" uid="uid://c1xfwt7qod0yl" path="res://objects/ball_hole/ball_hole.tscn" id="4_t8dge"]
 [ext_resource type="TileSet" uid="uid://dx7g6ajr03o8x" path="res://tileSets/walls_wood_tileset.tres" id="5_qgarv"]
+[ext_resource type="PackedScene" uid="uid://4g1m3wqcrrp1" path="res://objects/spikes/spikes.tscn" id="5_r0pc2"]
 
 [node name="Test_Map" type="Node2D"]
 
@@ -18,7 +19,7 @@ collision_visibility_mode = 1
 position = Vector2(-80, 640)
 
 [node name="Ball" parent="." instance=ExtResource("2_4wuf8")]
-position = Vector2(-8, -40)
+position = Vector2(0, -40)
 
 [node name="wallSlope" parent="." instance=ExtResource("4_qgarv")]
 position = Vector2(-120, 360)
@@ -37,3 +38,6 @@ property_rotation = 3
 position = Vector2(-120, -40)
 rotation = 1.5708
 property_rotation = 1
+
+[node name="Spikes" parent="." instance=ExtResource("5_r0pc2")]
+position = Vector2(120, 360)

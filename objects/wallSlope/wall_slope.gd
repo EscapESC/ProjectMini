@@ -3,7 +3,7 @@ extends StaticBody2D
 
 @export_category("Editor properties")
 @export var property_skin = 0;
-@export var property_rotation:int = 0;
+@export_enum("0°:0","90°:1","180°:2","270°:3") var property_rotation:int = 0;
 var property_canRotate:int = true;
 
 @export var textureFrameSize:int = 16;
