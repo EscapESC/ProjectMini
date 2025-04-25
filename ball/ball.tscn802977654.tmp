@@ -51,5 +51,6 @@ shape = SubResource("CircleShape2D_pwunn")
 z_index = 0
 
 [node name="Arrow" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(5, 5)
 texture = ExtResource("5_0p2w7")
