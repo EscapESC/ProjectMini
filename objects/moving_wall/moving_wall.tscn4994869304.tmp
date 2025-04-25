@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dowvec74c5aer"]
+
+[ext_resource type="Script" uid="uid://pommefxsm8gv" path="res://objects/moving_wall/moving_wall.gd" id="1_7hshn"]
+[ext_resource type="Texture2D" uid="uid://lkd6hohqb4dq" path="res://assets/objects/moving_wall.png" id="2_0o3vi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsaf1"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oiqo"]
+size = Vector2(1, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtp2r"]
+size = Vector2(1, 8)
+
+[node name="MovingWall" type="AnimatableBody2D"]
+scale = Vector2(5, 5)
+sync_to_physics = false
+script = ExtResource("1_7hshn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0o3vi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jsaf1")
+
+[node name="LeftSenzor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSenzor"]
+position = Vector2(-8.4, 0)
+shape = SubResource("RectangleShape2D_5oiqo")
+
+[node name="RightSenzor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSenzor"]
+position = Vector2(8.4, 0)
+shape = SubResource("RectangleShape2D_dtp2r")
+
+[connection signal="body_entered" from="LeftSenzor" to="." method="_on_left_senzor_body_entered"]
+[connection signal="body_entered" from="RightSenzor" to="." method="_on_right_senzor_body_entered"]
