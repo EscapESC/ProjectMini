@@ -1,13 +1,13 @@
 extends Node2D
 
 @export_category("Editor properties")
-@export var active:bool = true;
+@export var editor_active:bool = true;
 
-@export var timeActivated: float = 1.0;
-@export var timeDeactivated: float = 1.0;
+@export var editor_timeActivated: float = 1.0;
+@export var editor_timeDeactivated: float = 1.0;
 
 @onready var collisionObject: Area2D = $Area2D;
-@onready var currentState:bool = active;
+@onready var currentState:bool = editor_active;
 
 var transitioning:bool = false;
 
@@ -16,36 +16,36 @@ var objectsInside = [];
 var timeCheckpoint;
 
 func _ready() -> void:
-	if active == true:
-		$AnimatedSprite2D.play("out");
+	if editor_active == true:
+		$AnimatedSprite2D.play("in");
 		currentState = true;
 	else:
 		$AnimatedSprite2D.play("out");
 	timeCheckpoint = Time.get_ticks_msec()
 
 func _process(delta: float) -> void:
-	if active and currentState: ## Checking to change the state.
-		if Time.get_ticks_msec()-timeCheckpoint >= timeActivated*1000:
-			active = false;
-	elif active and currentState == false: ## If its set to active, but its still inactive
-		if $AnimatedSprite2D.animation == "out" and $AnimatedSprite2D.is_playing() == false:
+	if editor_active and currentState: ## Checking to change the state.
+		if Time.get_ticks_msec()-timeCheckpoint >= editor_timeActivated*1000:
+			editor_active = false;
+	elif editor_active and currentState == false: ## If its set to active, but its still inactive
+		if $AnimatedSprite2D.animation == "in" and $AnimatedSprite2D.is_playing() == false:
 			timeCheckpoint = Time.get_ticks_msec();
 			currentState = true;
 			killObjectsInside();
-		if $AnimatedSprite2D.animation != "out":
-			$AnimatedSprite2D.play("out");
-	elif active == false and currentState == false: ## Checking to change the state.
-		if Time.get_ticks_msec()-timeCheckpoint >= timeDeactivated*1000:
-			active = true;
-	elif active == false and currentState == true: ## If its set to inactive, but its still active
-		if $AnimatedSprite2D.animation == "in" and $AnimatedSprite2D.is_playing() == false:
-			timeCheckpoint = Time.get_ticks_msec();
-			currentState = false;
 		if $AnimatedSprite2D.animation != "in":
 			$AnimatedSprite2D.play("in");
+	elif editor_active == false and currentState == false: ## Checking to change the state.
+		if Time.get_ticks_msec()-timeCheckpoint >= editor_timeDeactivated*1000:
+			editor_active = true;
+	elif editor_active == false and currentState == true: ## If its set to inactive, but its still active
+		if $AnimatedSprite2D.animation == "out" and $AnimatedSprite2D.is_playing() == false:
+			timeCheckpoint = Time.get_ticks_msec();
+			currentState = false;
+		if $AnimatedSprite2D.animation != "out":
+			$AnimatedSprite2D.play("out");
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if active:
+	if editor_active:
 		if body.has_method("die"):
 			body.die();
 		else:

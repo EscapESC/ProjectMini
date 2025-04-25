@@ -91,6 +91,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_kluxo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_mls0y")
 animation = &"in"

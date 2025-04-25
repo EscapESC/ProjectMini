@@ -28,7 +28,7 @@ powerMeter = NodePath("TextureProgressBar")
 Arrow = NodePath("Arrow")
 
 [node name="Ball_Sprite" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 scale = Vector2(5, 5)
 texture = ExtResource("2_biv8x")
 
@@ -36,6 +36,7 @@ texture = ExtResource("2_biv8x")
 
 [node name="TextureProgressBar" parent="." instance=ExtResource("3_biv8x")]
 visible = true
+z_index = 1
 offset_left = 19.0
 offset_top = -47.0
 offset_right = 35.0
@@ -51,5 +52,6 @@ shape = SubResource("CircleShape2D_pwunn")
 z_index = 0
 
 [node name="Arrow" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(5, 5)
 texture = ExtResource("5_0p2w7")
