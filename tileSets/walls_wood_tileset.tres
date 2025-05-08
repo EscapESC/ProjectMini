@@ -1,7 +1,10 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dx7g6ajr03o8x"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dx7g6ajr03o8x"]
 
 [ext_resource type="Texture2D" uid="uid://eijd01nmmhvc" path="res://assets/floor/wooden_planks.png" id="1_exesh"]
 [ext_resource type="Texture2D" uid="uid://b1aeqevlg60uu" path="res://assets/floor/grass_template.png" id="2_5pa07"]
+[ext_resource type="PackedScene" uid="uid://4g1m3wqcrrp1" path="res://objects/spikes/spikes.tscn" id="3_q78yc"]
+[ext_resource type="PackedScene" uid="uid://co8x3mn2us2tn" path="res://objects/wall_slope/wallSlope.tscn" id="4_gjyya"]
+[ext_resource type="PackedScene" uid="uid://cbw625qy1iki" path="res://objects/wall_spikes/wall_spikes.tscn" id="5_e38x7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pa07"]
 texture = ExtResource("1_exesh")
@@ -739,6 +742,11 @@ texture = ExtResource("2_5pa07")
 11:1/0/terrains_peering_bit/top_side = 2
 11:1/0/terrains_peering_bit/top_right_corner = 2
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b830c"]
+scenes/1/scene = ExtResource("3_q78yc")
+scenes/2/scene = ExtResource("4_gjyya")
+scenes/3/scene = ExtResource("5_e38x7")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -750,3 +758,4 @@ terrain_set_0/terrain_2/name = "Grass"
 terrain_set_0/terrain_2/color = Color(0, 1, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_5pa07")
 sources/1 = SubResource("TileSetAtlasSource_jk0rl")
+sources/2 = SubResource("TileSetScenesCollectionSource_b830c")

@@ -9,18 +9,25 @@ var SHOOTING:bool = false;
 
 var maxShootingStrengthPx:int = 500;
 
+var currentHole:int = 1;
+
 var range:int = 50;
 @export var forceMultiplayer:float = 1;
 
 @export var powerMeter:TextureProgressBar;
 @export var Arrow:Sprite2D;
 
+var lastPos:Vector2;
+var playerID:int;
+
 func _ready() -> void:
 	Arrow.visible = false;
+	lastPos = self.position;
 
 func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_pressed("shoot") or event is InputEventScreenTouch) and get_global_mouse_position().x-self.position.x < range and get_global_mouse_position().x-self.position.x > -range and get_global_mouse_position().y-self.position.y < range and get_global_mouse_position().y-self.position.y > -range and linear_velocity.length() < 10:
-		shoot_pos_start = self.position
+		shoot_pos_start = self.position;
+		lastPos = self.position;
 		SHOOTING = true;
 		powerMeter.visible = true;
 		Arrow.visible = true;
@@ -59,8 +66,17 @@ func _draw() -> void:
 			powerMeter.value = min(to_local(self.position).distance_to(get_local_mouse_position())/maxShootingStrengthPx,1)*100; 
 
 func die() -> void:
+	var parent = self.get_parent();
+	if parent != null:
+		if parent.has_method("player_win"):
+			parent.player_die(self);
 	print("DEAD")
 	
-func win() -> void:
+func win(holeID:int) -> void:
+	var parent = self.get_parent();
+	currentHole = holeID;
+	if parent != null:
+		if parent.has_method("player_win"):
+			parent.player_win(self);
 	print("win")
 	

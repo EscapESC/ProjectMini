@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3gqbykca5igf"]
+
+[ext_resource type="Script" uid="uid://djrs7vsnfdtf3" path="res://objects/hole_spawner.gd" id="1_n7ecc"]
+
+[node name="hole" type="Node2D"]
+script = ExtResource("1_n7ecc")
+metadata/_custom_type_script = "uid://djrs7vsnfdtf3"
