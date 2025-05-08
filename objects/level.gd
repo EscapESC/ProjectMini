@@ -17,12 +17,14 @@ func _ready() -> void:
 func player_die(player) -> void:
 	player.linear_velocity = Vector2(0,0);
 	player.global_transform.origin = player.lastPos;
+	player.Line.curve.clear_points();
 	
 func player_win(player) -> void:
 	if spawns.size() > player.currentHole+1:
 		player.linear_velocity = Vector2(0,0);
 		player.global_transform.origin = spawns[player.currentHole+1].position;
 		player.lastPos = spawns[player.currentHole+1].position;
+		player.Line.curve.clear_points();
 	else:
 		player.queue_free();
 		print("Level has ended.")

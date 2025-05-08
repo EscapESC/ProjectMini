@@ -13,7 +13,7 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwunn"]
 radius = 4.0
 
-[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("powerMeter", "Arrow")]
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("powerMeter", "Arrow", "Line")]
 collision_layer = 5
 mass = 0.045
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
@@ -26,6 +26,7 @@ angular_damp = 1.0
 script = ExtResource("1_pwunn")
 powerMeter = NodePath("TextureProgressBar")
 Arrow = NodePath("Arrow")
+Line = NodePath("Line2D")
 
 [node name="Ball_Sprite" type="Sprite2D" parent="."]
 z_index = 2

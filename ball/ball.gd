@@ -16,6 +16,7 @@ var range:int = 50;
 
 @export var powerMeter:TextureProgressBar;
 @export var Arrow:Sprite2D;
+@export var Line:Line2D;
 
 var lastPos:Vector2;
 var playerID:int;
